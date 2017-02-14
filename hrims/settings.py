@@ -76,6 +76,13 @@ WSGI_APPLICATION = 'hrims.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django',
+        'USER': 'postgres',
+        'PASSWORD': '1MoreTime!',
+        'PORT': '5432',
+    },
+    'aws': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hrims',
         'USER': 'hrimsadmin',
