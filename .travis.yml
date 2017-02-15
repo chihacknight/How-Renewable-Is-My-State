@@ -29,4 +29,4 @@ before_script:
   - psql -c "CREATE DATABASE django;" -U postgres
 
 script:
-  - python ./How-Renewable-Is-My-State/manage.py test
+  - python manage.py test
