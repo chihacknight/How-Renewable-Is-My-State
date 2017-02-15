@@ -1,12 +1,3 @@
-# Full path and name to your csv file
-csv_filepathname="./filtered_data.csv"
-# Full path to your django project directory
-your_djangoproject_home="C:\\repos\\How-Renewable-Is-My-State\\hrims"
-
-import sys,os
-sys.path.append(your_djangoproject_home)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-
 from re_stats.models import Data
 
 import csv
