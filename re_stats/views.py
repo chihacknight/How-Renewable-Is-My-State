@@ -1,5 +1,10 @@
-from django.http import HttpResponse
+from re_stats.models import Data
+from rest_framework import viewsets
+from re_stats.serializers import DataSerializer
 
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+class DataViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint views the data as it was imported.
+    """
+    queryset = Data.objects.all()
+    serializer_class = DataSerializer
