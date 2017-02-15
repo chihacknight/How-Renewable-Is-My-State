@@ -18,3 +18,4 @@ six==1.10.0
 tablib==0.11.4
 uritemplate==3.0.0
 gunicorn==19.6.0
+dj-database-url==0.4.1
