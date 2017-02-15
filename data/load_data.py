@@ -1,3 +1,4 @@
+
 import os, django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hrims.settings")
 django.setup()
@@ -20,3 +21,4 @@ for row in dataReader:
         data.save()
 
 dataReader.close()
+
