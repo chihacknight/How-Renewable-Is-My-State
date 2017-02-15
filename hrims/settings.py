@@ -83,15 +83,16 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '1MoreTime!',
         'PORT': '5432',
-    },
-    'aws': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hrims',
-        'USER': 'hrimsadmin',
-        'PASSWORD': 'c8TszcDt9TrDVTxN',
-        'HOST': 'hrimsdb.cxkvf9a4xfcx.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
     }
+    # ,
+    # 'aws': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'hrims',
+    #     'USER': 'hrimsadmin',
+    #     'PASSWORD': 'c8TszcDt9TrDVTxN',
+    #     'HOST': 'hrimsdb.cxkvf9a4xfcx.us-east-1.rds.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 }
 
 REST_FRAMEWORK = {

@@ -1,0 +1,32 @@
+#   A basic travis.yml boilerplate for Django projects
+#
+#   The set-up assumes a postgreSQL database.
+#
+#   Replace the following variables in the code:
+# * your_project_settings
+# * your_github_username
+# * your_repo
+
+language: python
+
+python:
+  - 3.6
+
+services: postgresql
+
+env:
+  - DJANGO=1.10
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=hrims.settings
+  - export PYTHONPATH=$HOME/builds/easherma/How-Renewable-Is-My-State
+  - export PIP_USE_MIRRORS=true
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - psql -c "CREATE DATABASE django;" -U postgres
+
+script:
+  - python ./How-Renewable-Is-My-State/manage.py test
