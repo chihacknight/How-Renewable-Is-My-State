@@ -17,7 +17,9 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from re_stats import views
+from rest_framework.schemas import get_schema_view
 
+schema_view = get_schema_view(title='data API')
 router = routers.DefaultRouter()
 router.register(r'data', views.DataViewSet)
 
@@ -26,5 +28,6 @@ router.register(r'data', views.DataViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
+    url('^schema/$', schema_view),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
