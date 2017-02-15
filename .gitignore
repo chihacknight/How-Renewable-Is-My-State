@@ -1,2 +1,6 @@
 .sass-cache/
 *.css.map
+*.pyc
+*.pyc
+hrims/__pycache__/urls.cpython-36.pyc
+*.pyc
