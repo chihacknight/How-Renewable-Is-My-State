@@ -1,4 +1,7 @@
+chardet==2.3.0
 Django==1.10.3
+django-adaptors==0.2.5
+django-csvimport==2.5
 django-filter==1.0.1
 djangorestframework==3.5.4
 folium==0.2.1
