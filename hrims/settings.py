@@ -143,8 +143,8 @@ STATIC_ROOT = "/static/"
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    ('js', '/js'),
-    ('css', '/js')
+    ('js', './js'),
+    ('css', './js')
 ]
 
 
