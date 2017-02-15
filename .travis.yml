@@ -30,9 +30,3 @@ before_script:
 
 script:
   - python manage.py test
-
-deploy:
-  provider: heroku
-  api_key:
-    secure: f5d35f2b-738c-4aaf-b56a-33807790e120
-  app: hrims
