@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'import_export',
-    're_stats.apps.ReStatsConfig',
-    'crispy-forms'
+    're_stats.apps.ReStatsConfig'
 ]
 
 MIDDLEWARE = [
