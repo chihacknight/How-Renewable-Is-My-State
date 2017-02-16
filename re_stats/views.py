@@ -9,5 +9,5 @@ class DataViewSet(viewsets.ModelViewSet):
     """
     queryset = Data.objects.all()
     serializer_class = DataSerializer
-    filter_backends = (filters.DjangoFilterBackend)
+    filter_backends = (DjangoFilterBackend)
     filter_fields = ('msn', 'year')
