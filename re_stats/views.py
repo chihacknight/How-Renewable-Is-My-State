@@ -8,3 +8,5 @@ class DataViewSet(viewsets.ModelViewSet):
     """
     queryset = Data.objects.all()
     serializer_class = DataSerializer
+    # filter_backends = (filters.DjangoFilterBackend)
+    # filter_fields = ('category', 'in_stock')
