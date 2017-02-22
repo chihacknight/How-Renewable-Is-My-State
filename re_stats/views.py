@@ -1,4 +1,4 @@
-from re_stats.models import Data
+from re_stats.models import Data, Info
 from rest_framework import viewsets
 from re_stats.serializers import DataSerializer
 # from django_filters.rest_framework import DjangoFilterBackend
