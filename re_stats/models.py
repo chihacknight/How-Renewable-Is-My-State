@@ -8,3 +8,8 @@ class Data(models.Model):
     statecode = models.CharField(max_length=2)
     year = models.IntegerField()
     data = 	models.FloatField("Value for given MSN. Units may vary")
+
+class Info(models.Model):
+    msn = models.ForeignKey( Data, unique=True)
+    description = models.CharField(max_length=255)
+    detail = models.CharField(max_length=255)
