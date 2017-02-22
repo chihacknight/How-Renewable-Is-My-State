@@ -20,6 +20,6 @@ class InfoViewSet(viewsets.ModelViewSet):
     view metadata
     """
     queryset = Info.objects.all()
-    serializer_class = DataSerializer
+    serializer_class = InfoSerializer
     # filter_backends = (filters.DjangoFilterBackend)
     filter_fields = ('msn', 'description', 'detail')
