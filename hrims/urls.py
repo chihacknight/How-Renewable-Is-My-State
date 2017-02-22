@@ -22,6 +22,7 @@ from rest_framework.schemas import get_schema_view
 schema_view = get_schema_view(title='data API')
 router = routers.DefaultRouter()
 router.register(r'data', views.DataViewSet)
+router.register(r'info', views.InfoViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

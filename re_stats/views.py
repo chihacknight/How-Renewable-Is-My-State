@@ -14,3 +14,12 @@ class DataViewSet(viewsets.ModelViewSet):
     serializer_class = DataSerializer
     # filter_backends = (filters.DjangoFilterBackend)
     filter_fields = ('msn', 'year', 'statecode')
+
+class InfoViewSet(viewsets.ModelViewSet):
+    """
+    view metadata
+    """
+    queryset = Info.objects.all()
+    serializer_class = DataSerializer
+    # filter_backends = (filters.DjangoFilterBackend)
+    filter_fields = ('msn', 'description', 'detail')
