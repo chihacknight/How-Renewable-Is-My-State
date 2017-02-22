@@ -6,7 +6,7 @@ class DataSerializer(serializers.HyperlinkedModelSerializer):
         model = Data
         fields = ('id','original_row_id','data_status','msn','statecode','year','data')
 
-class DataSerializer(serializers.HyperlinkedModelSerializer):
+class InfoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Info
         fields = ('msn', 'description', 'detail')
