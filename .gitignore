@@ -13,3 +13,4 @@ re_stats/migrations/__pycache__/*.pyc
 *.pyc
 hrims/__pycache__/settings.cpython-36.pyc
 frontend/node_modules
+*.log
