@@ -5,7 +5,7 @@
     data: function () {
       return {
         image: require('src/logo.png'),
-        title: 'ue-Build',
+        title: 'ery Renewable State',
         message: 'Nice job! Youve made it!',
         environment: ENVIRONMENT,
         port: PORT
