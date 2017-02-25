@@ -162,7 +162,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
     #os.path.join(PROJECT_ROOT, '/frontend/dist'),
     #os.path.join(PROJECT_ROOT, 'static/frontend/dist/'),
-    #'static/frontend/dist/'
+    './frontend/dist/'
 )
 
 # Simplified static file serving.
