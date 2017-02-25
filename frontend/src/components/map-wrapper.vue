@@ -20,14 +20,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .leaflet-map-wrapper {
+  .leaflet-container {
     height: 500px;
     width: 1000px;
   }
 </style>
 
 <template>
-  <div class="leaflet-map-wrapper">
-    <div :id="mapId"></div>
-  </div>
+  <div :id="mapId" class="leaflet-map-wrapper"></div>
 </template>
