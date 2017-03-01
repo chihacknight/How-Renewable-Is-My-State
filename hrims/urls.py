@@ -18,6 +18,8 @@ from django.contrib import admin
 from rest_framework import routers
 from re_stats import views
 from rest_framework.schemas import get_schema_view
+from django.views.generic.base import TemplateView
+
 
 schema_view = get_schema_view(title='data API')
 router = routers.DefaultRouter()
@@ -27,8 +29,11 @@ router.register(r'info', views.InfoViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
+    #url(r'^$', TemplateView.as_view(template_name='index.html')),
+    #url(r'^$', views.index, name='home'),
     url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url('^schema/$', schema_view),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^$', TemplateView.as_view(template_name='home.html')),
 ]

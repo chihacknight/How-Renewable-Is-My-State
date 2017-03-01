@@ -1,6 +1,6 @@
 <script>
   /* globals ENVIRONMENT,PORT */
-
+  import mapWrapper from 'components/map-wrapper'
   export default {
     data: function () {
       return {
@@ -16,6 +16,9 @@
         let newMessage = message + ' Now go build something!'
         this.message = newMessage
       }
+    },
+    components: {
+      mapWrapper
     }
   }
 </script>
@@ -36,5 +39,6 @@
       <div>Environment: {{environment}}</div>
       <div>Port: {{port}}</div>
     </div>
+    <mapWrapper mapId="map">
   </div>
 </template>
