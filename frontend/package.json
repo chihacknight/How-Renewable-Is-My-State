@@ -1,0 +1,7 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "dependencies": {
+    "vue-build": "^0.36.0"
+  }
+}
