@@ -1,13 +1,13 @@
 @import '~leaflet/dist/leaflet.css';
-$content-height: auto;
-$content-width: 300px;
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+$site-font: 'PT Sans';
 
 html {
   height: 100%;
 }
 
 body {
-  font-family: helvetica;
+  font-family: $site-font;
 }
 
 h1 {
@@ -15,13 +15,9 @@ h1 {
 }
 
 #app {
-  .content {
-    text-align: center;
-    background-color: white;
-    height: $content-height;
-    width: $content-width;
-    padding: 20px;
-    margin: 20px auto 0 auto;
-    border: solid 1px #cccccc;
-  }
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
