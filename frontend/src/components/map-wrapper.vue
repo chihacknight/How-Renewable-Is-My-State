@@ -10,9 +10,9 @@ import L from 'leaflet'
 export default {
   props: ['mapId'],
   mounted () {
-    this.$map = L.map(this.mapId).setView(new L.LatLng(51.3, 0.7), 9)
+    this.$map = L.map(this.mapId).setView(new L.LatLng(39, -92), 4)
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
+      maxZoom: 6,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.$map)
   }

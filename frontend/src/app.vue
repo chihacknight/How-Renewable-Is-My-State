@@ -39,6 +39,6 @@
       <div>Environment: {{environment}}</div>
       <div>Port: {{port}}</div>
     </div>
-    <mapWrapper mapId="map">
+    <mapWrapper mapId="map"></mapWrapper>
   </div>
 </template>
