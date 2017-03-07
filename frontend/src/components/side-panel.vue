@@ -18,6 +18,8 @@ export default {
 
 <template>
   <div id='side-panel-wrapper'>
-    <p>Side Panel</p>
+    <h1>Side Panel</h1>
+
+
   </div>
 </template>

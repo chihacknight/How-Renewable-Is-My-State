@@ -3,11 +3,12 @@
   import navHeader from 'components/nav-header'
   import mapWrapper from 'components/map-wrapper'
   import sidePanel from 'components/side-panel'
+  import chart from 'components/chart'
 
   export default {
     data: function () {
       return {
-        
+
         title: 'ery Renewable State',
         message: 'Nice job! Youve made it!',
         environment: ENVIRONMENT,
@@ -20,7 +21,7 @@
         this.message = newMessage
       }
     },
-    components: {navHeader, mapWrapper, sidePanel}
+    components: {navHeader, mapWrapper, sidePanel, chart}
   }
 </script>
 
@@ -40,7 +41,9 @@
     <navHeader></navHeader>
     <div id='vis-component-container'>
       <mapWrapper mapId='map'></mapWrapper>
+      <chart></chart>
       <sidePanel></sidePanel>
+
     </div>
   </div>
 </template>
