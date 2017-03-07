@@ -7,7 +7,7 @@
   export default {
     data: function () {
       return {
-        image: require('src/logo.png'),
+        
         title: 'ery Renewable State',
         message: 'Nice job! Youve made it!',
         environment: ENVIRONMENT,
