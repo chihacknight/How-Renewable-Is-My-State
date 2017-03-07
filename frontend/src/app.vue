@@ -19,10 +19,20 @@
       updateMessage: function (message) {
         let newMessage = message + ' Now go build something!'
         this.message = newMessage
+    },
+      fetchData: function(request) {
+          .then((response) => response.json())
+          .then(function(data) {
+              let values = data.results;
+              console.log(values);
+          });
+
       }
+
     },
     components: {navHeader, mapWrapper, sidePanel, chart}
   }
+
 </script>
 
 <style lang='sass-loader'>
