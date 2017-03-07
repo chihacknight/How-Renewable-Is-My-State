@@ -21,6 +21,7 @@
         this.message = newMessage
     },
       fetchData: function(request) {
+          fetch('http://localhost:8000/api/data/') // Call the fetch function passing the url of the API as a parameter
           .then((response) => response.json())
           .then(function(data) {
               let values = data.results;
