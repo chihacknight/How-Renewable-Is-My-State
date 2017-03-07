@@ -1,0 +1,23 @@
+@import '~leaflet/dist/leaflet.css';
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+$site-font: 'PT Sans';
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $site-font;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+}
+
+#app {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
