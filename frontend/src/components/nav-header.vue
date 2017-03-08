@@ -10,6 +10,7 @@ export default {
 </script>
 
 <style lang="sass-loader">
+  $primary-color: #6C9B34;
   nav {
     height: 70px;
     max-width: 960px;
@@ -33,7 +34,7 @@ export default {
           text-decoration: none;
         }
         &:hover {
-          background-color: lightgray;
+          background-color: $primary-color;
           text-decoration: underline;
         }
       }

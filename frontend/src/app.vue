@@ -3,12 +3,12 @@
   import navHeader from 'components/nav-header'
   import mapWrapper from 'components/map-wrapper'
   import sidePanel from 'components/side-panel'
-  import chart from 'components/chart'
+==== BASE ====
+==== BASE ====
 
   export default {
     data: function () {
       return {
-
         title: 'ery Renewable State',
         message: 'Nice job! Youve made it!',
         environment: ENVIRONMENT,
@@ -31,7 +31,7 @@
       }
 
     },
-    components: {navHeader, mapWrapper, sidePanel, chart}
+    components: {navHeader, mapWrapper, sidePanel, siteFooter}, chart
   }
 
 </script>
@@ -56,5 +56,6 @@
       <sidePanel></sidePanel>
 
     </div>
+    <siteFooter></siteFooter>
   </div>
 </template>
