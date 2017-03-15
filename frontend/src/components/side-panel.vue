@@ -1,8 +1,10 @@
 <script>
+import { mockData } from '../mock-data/data'
 export default {
   data () {
     return {
-      name: 'sidePanel'
+      name: 'sidePanel',
+      mockData
     }
   }
 }
@@ -19,7 +21,7 @@ export default {
 <template>
   <div id='side-panel-wrapper'>
     <h1>Side Panel</h1>
-
+    {{mockData}}
 
   </div>
 </template>

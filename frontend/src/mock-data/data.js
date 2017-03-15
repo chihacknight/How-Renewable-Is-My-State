@@ -1,4 +1,4 @@
-export const data = [
+export const mockData = [
   {
     'id': 825,
     'original_row_id': 172719,
