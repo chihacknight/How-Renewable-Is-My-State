@@ -34,6 +34,11 @@
 
 <template>
   <div class='faq'>
-    <faqItem v-for="qa in qas"></faqItem>
+    <faqItem
+      v-for="qa in qas"
+      :question='qa.question'
+      :answer='qa.answer'
+      >
+    </faqItem>
   </div>
 </template>

@@ -1,12 +1,9 @@
 <script>
   export default {
-    data () {
-      return {
-        name: 'faqItem',
-        question: 'A Question?',
-        answer: 'An answer'
-      }
-    }
+    props: [
+      'question',
+      'answer'
+    ]
   }
 </script>
 
