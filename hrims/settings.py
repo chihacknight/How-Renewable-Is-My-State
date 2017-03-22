@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'rest_framework',
     'import_export',
+    'djgeojson',
     're_stats.apps.ReStatsConfig'
+
 ]
 
 MIDDLEWARE = [
@@ -111,6 +114,10 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 
+}
+
+SERIALIZATION_MODULES = {
+    'geojson' : 'djgeojson.serializers'
 }
 
 # Password validation

@@ -1,4 +1,5 @@
 from django.db import models
+from djgeojson.fields import PolygonField
 
 
 class Data(models.Model):
@@ -20,3 +21,8 @@ class MapData(models.Model):
     statecode = models.CharField(max_length=2)
     year = models.IntegerField()
     re_over_te = models.FloatField("renewable total over total")
+
+class Map(models.Model):
+    #geom = PolygonField()
+    type = = models.TextField()
+    features = models.TextField()
