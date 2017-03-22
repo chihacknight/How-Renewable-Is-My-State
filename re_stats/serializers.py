@@ -20,4 +20,4 @@ class MapDataSerializer(serializers.HyperlinkedModelSerializer):
 class MapSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Map
-        fields = ('type','features')
+        fields = ('fid','geometry','coordinates','statecode','state_label','ALAND10','AWATER10','INTPTLAT10','INTPTLON10')

@@ -23,6 +23,12 @@ class MapData(models.Model):
     re_over_te = models.FloatField("renewable total over total")
 
 class Map(models.Model):
-    #geom = PolygonField()
-    type =  models.TextField()
-    features = models.TextField()
+    fid = models.TextField()
+    geometry = models.TextField()
+    coordinates = models.TextField()
+    statecode = models.TextField()
+    state_label = models.TextField()
+    ALAND10 = models.TextField()
+    AWATER10 = models.TextField()
+    INTPTLAT10 = models.TextField()
+    INTPTLON10 = models.TextField()
