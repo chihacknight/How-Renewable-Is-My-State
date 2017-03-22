@@ -1,4 +1,4 @@
-from re_stats.models import Data, Info
+from re_stats.models import Data, Info, MapData
 from rest_framework import serializers
 
 class DataSerializer(serializers.HyperlinkedModelSerializer):
@@ -10,3 +10,8 @@ class InfoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Info
         fields = ('msn', 'description', 'detail')
+
+class MapDataSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = MapData
+        fields = ('id','statecode','year','re_over_te')
