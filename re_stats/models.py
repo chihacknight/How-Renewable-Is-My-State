@@ -24,5 +24,5 @@ class MapData(models.Model):
 
 class Map(models.Model):
     #geom = PolygonField()
-    type = = models.TextField()
+    type =  models.TextField()
     features = models.TextField()
