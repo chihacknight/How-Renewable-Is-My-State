@@ -15,3 +15,6 @@ hrims/__pycache__/settings.cpython-36.pyc
 frontend/node_modules/
 frontend/node_modules
 *.log
+hrims/__pycache__/settings.cpython-36.pyc
+re_stats/__pycache__/views.cpython-36.pyc
+re_stats/__pycache__/admin.cpython-36.pyc
