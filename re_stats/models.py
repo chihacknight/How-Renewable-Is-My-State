@@ -15,3 +15,8 @@ class Info(models.Model):
     msn = models.CharField("Data Series Names", max_length=5)
     description = models.CharField(max_length=255)
     detail = models.CharField(max_length=255)
+
+class MapData(models.Model):
+    statecode = models.CharField(max_length=2)
+    year = models.IntegerField()
+    re_over_te = models.FloatField("renewable total over total")
