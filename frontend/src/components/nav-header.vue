@@ -10,6 +10,7 @@ export default {
 </script>
 
 <style lang="sass-loader">
+  $primary-color: #6C9B34;
   nav {
     height: 70px;
     max-width: 960px;
@@ -20,6 +21,10 @@ export default {
     .sitename {
       font-size: 40px;
       line-height: 70px;
+      a {
+        color: black;
+        text-decoration: none;
+      }
     }
     .nav-options {
       padding: 0;
@@ -33,7 +38,7 @@ export default {
           text-decoration: none;
         }
         &:hover {
-          background-color: lightgray;
+          background-color: $primary-color;
           text-decoration: underline;
         }
       }
@@ -43,10 +48,13 @@ export default {
 
 <template>
   <nav>
-    <h1 class='sitename'>{{ sitename }}</h1>
+    <h1 class='sitename'>
+      <router-link :to="{name:'home'}">{{ sitename }}</router-link>
+    </h1>
     <div class ='nav-options'>
-      <span class='nav-option'><a href='#'>About</a></span>
-      <span class='nav-option'><a href='#'>FAQ</a></span>
+      <span class='nav-option'>
+        <router-link :to="{name:'about'}">About</router-link>
+      </span>
     </div>
   </nav>
 </template>
