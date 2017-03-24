@@ -1,7 +1,7 @@
 .sass-cache/
 *.css.map
 *.pyc
-*.pyc
+.pyc
 hrims/__pycache__/urls.cpython-36.pyc
 *.pyc
 hrims/__pycache__/__init__.*.pyc
@@ -12,5 +12,9 @@ re_stats/migrations/__pycache__/*.pyc
 *.env
 *.pyc
 hrims/__pycache__/settings.cpython-36.pyc
+frontend/node_modules/
 frontend/node_modules
 *.log
+hrims/__pycache__/settings.cpython-36.pyc
+re_stats/__pycache__/views.cpython-36.pyc
+re_stats/__pycache__/admin.cpython-36.pyc
