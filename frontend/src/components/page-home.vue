@@ -38,6 +38,5 @@
   <div id='vis-component-container'>
     <mapWrapper mapId='map'></mapWrapper>
     <sidePanel></sidePanel>
-    <chart></chart>
   </div>
 </template>
