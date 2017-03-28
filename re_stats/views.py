@@ -1,11 +1,11 @@
-from re_stats.models import Data, Info, MapData, Map
+from re_stats.models import Data, Info, MapData
 from rest_framework import viewsets
-from re_stats.serializers import DataSerializer, InfoSerializer, MapDataSerializer, MapSerializer
+from re_stats.serializers import DataSerializer, InfoSerializer, MapDataSerializer
 # from django_filters.rest_framework import DjangoFilterBackend
 # from rest_framework import filters
 # from rest_framework import generics
 from django.shortcuts import render
-from djgeojson.views import GeoJSONLayerView
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -37,12 +37,3 @@ class MapDataViewSet(viewsets.ModelViewSet):
     serializer_class = MapDataSerializer
     # filter_backends = (filters.DjangoFilterBackend)
     filter_fields = ('re_over_te', 'year', 'statecode')
-
-class MapViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint showing total renewable over total energy
-    """
-    queryset = Map.objects.all()
-    serializer_class = MapSerializer
-    # filter_backends = (filters.DjangoFilterBackend)
-    #filter_fields = ('features')

@@ -19,8 +19,6 @@ from rest_framework import routers
 from re_stats import views
 from rest_framework.schemas import get_schema_view
 from django.views.generic.base import TemplateView
-from re_stats.views import Map
-from djgeojson.views import GeoJSONLayerView
 
 
 schema_view = get_schema_view(title='data API')
@@ -28,7 +26,6 @@ router = routers.DefaultRouter()
 router.register(r'data', views.DataViewSet)
 router.register(r'info', views.InfoViewSet)
 router.register(r'mapdata', views.MapDataViewSet)
-router.register(r'map', views.MapViewSet)
 #router.register(r'map', GeoJSONLayerView.as_view(model=Map))
 #router.register(r'^map.geojson$', views.Map.as_view(model=Map, properties=('statecode',)), name='map')
 #router.register(r'^data.geojson$', GeoJSONLayerView.as_view(model=Map), name='map')
