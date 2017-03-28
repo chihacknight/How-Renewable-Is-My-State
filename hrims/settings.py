@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'rest_framework',
     'import_export',
-    'djgeojson',
     're_stats.apps.ReStatsConfig'
 
 ]
