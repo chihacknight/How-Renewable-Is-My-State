@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Data(models.Model):
     original_row_id = models.IntegerField()
     data_status = models.CharField("Date data was last updated", max_length=5)
