@@ -188,6 +188,9 @@ export default {
     #side-panel-title-wrapper {
       display: inherit;
       justify-content: space-between;
+      p {
+        font-size: 20px;
+      }
     }
     .flex-one {
       flex: 1;
@@ -199,12 +202,12 @@ export default {
 <template>
   <div id='side-panel-wrapper'>
     <div id='side-panel-title-wrapper'>
-      <h1 class='flex-one'>{{stateCodeToName(mockData[1].statecode)}}</h1>
-      <h1>1st of 51</h1>
+      <p class='flex-one'>{{stateCodeToName(mockData[1].statecode)}}</p>
+      <p>1st of 51</p>
     </div>
     <div id='side-panel-title-wrapper'>
-      <h1 class='flex-one'>Total Energy Consumption</h1>
-      <h1>by MMBtu</h1>
+      <p class='flex-one'>Total Energy Consumption</p>
+      <p>by MMBtu</p>
     </div>
     <infoRow :stat-icon="coalIcon" :stat-name='"Renewable"' :stat-value='mockData[1].data'></infoRow>
     <infoRow :stat-icon="gasIcon" :stat-name='"Fossil Fuel"' :stat-value='mockData[2].data'></infoRow>

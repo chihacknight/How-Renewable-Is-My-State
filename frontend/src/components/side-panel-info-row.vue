@@ -22,13 +22,13 @@
     .stat-name {
       padding-left: 10px;
       align-self: center;
-      font-size: 28px;
+      font-size: 20px;
       flex: 1;
     }
     .stat-value {
       padding-left: 10px;
       align-self: center;
-      font-size: 28px;
+      font-size: 20px;
     }
   }
 </style>

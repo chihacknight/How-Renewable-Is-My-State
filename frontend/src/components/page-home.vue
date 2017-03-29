@@ -31,11 +31,20 @@
       flex: 1;
     }
   }
+  #timeline-placeholder {
+    width: 100%;
+    height: 200px;
+    border: 1px solid black;
+  }
 </style>
 
 <template>
-  <div id='vis-component-container'>
-    <mapWrapper mapId='map'></mapWrapper>
-    <sidePanel></sidePanel>
-  </div>
+  <div>
+    <div id='vis-component-container'>
+      <mapWrapper mapId='map'></mapWrapper>
+      <sidePanel></sidePanel>
+    </div>
+    <div id='timeline-placeholder'>
+    </div>
+</div>
 </template>
