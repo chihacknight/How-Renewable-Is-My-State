@@ -2,7 +2,6 @@
   /* globals ENVIRONMENT,PORT */
   import mapWrapper from 'components/map-wrapper'
   import sidePanel from 'components/side-panel'
-  import chart from 'components/chart'
 
   export default {
     methods: {
@@ -19,7 +18,7 @@
           });
       }
     },
-    components: {mapWrapper, sidePanel, chart}
+    components: {mapWrapper, sidePanel}
   }
 </script>
 
