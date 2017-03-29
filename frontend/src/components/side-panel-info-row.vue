@@ -2,7 +2,8 @@
   export default {
     props: [
       'statIcon',
-      'statText'
+      'statName',
+      'statValue'
     ]
   }
 </script>
@@ -18,7 +19,13 @@
     .stat-icon {
       height: $row-height;
     }
-    .stat-text {
+    .stat-name {
+      padding-left: 10px;
+      align-self: center;
+      font-size: 28px;
+      flex: 1;
+    }
+    .stat-value {
       padding-left: 10px;
       align-self: center;
       font-size: 28px;
@@ -29,6 +36,7 @@
 <template>
   <div class='info-row'>
     <img class='stat-icon' :src="statIcon" />
-    <div class='stat-text'>{{statText}}</div>
+    <div class='stat-name'>{{statName}}: </div>
+    <div class='stat-value'>{{statValue / 10000}}%</div>
   </div>
 </template>
