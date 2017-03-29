@@ -8,35 +8,13 @@
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
   </head>
 
   <body>
-
-    <!-- Drop down selection for energy type -->
-    <p> Select an energy consumption type and a year </p>
-    <select id="e_types">
-      <option>--</option>
-      <option value="TETCB">Total Energy Consumption</option>
-      <option value="FFTCB">Fossile Fuel Consumption</option>
-      <option value="CLTCB">Coal Consumption</option>
-      <option value="NNTCB">Natural Gas Consumption</option>
-      <option value="PMTCB">Petroleum Products Consumption</option>
-      <option value="NUETB">Nuclear Energy Consumption</option>
-      <option value="RETCB">Renewable Energy Consumption</option>
-      <option value="EMLCB">Co-product of Fuel Ethanol Consumption</option>
-      <option value="EMTCB">Fuel Ethanol Consumption</option>
-      <option value="GETCB">Geothemal Energy Consumption</option>
-      <option value="HYTCB">Hydropower Consumption</option>
-      <option value="SOTCB">Photovoltaic and Solar Themal Energy Consumption</option>
-      <option value="WWTCB">Wood and Waste Consumption</option>
-      <option value="WYTCB">Wind Energy Consumption</option>
-      <option value="ELNIB">Net Imports of Electricity</option>
-      <option value="ELISB">Net Interstate Flow of Electricity</option>
-    </select>
-
-    <select id="year_dropdown"/>
-
+    <center><h1> Percentage of Renewable Energy Consumption (╯°□°)╯</h1></center>
+    <center><p>Pick a year 👉<select id="year_dropdown"/></p></center>
     <script type="text/javascript" src="USMap.js"></script>
-
+    <center><svg></svg></center>
   </body>
 </html>
