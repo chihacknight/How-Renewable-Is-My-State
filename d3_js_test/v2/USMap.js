@@ -210,4 +210,4 @@ function drawMap(geo_data) {
 
 
 // draw map which calls colorMap
-d3.json("http://d3js.org/us-10m.v1.json", drawMap);
+d3.json("../../data/states_geom_albers (2).json", drawMap);
