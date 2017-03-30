@@ -1,7 +1,6 @@
 // define width and height
-var margin = 0;
-var width = 960 - margin;
-var height = 600 - margin;
+var width = 700;
+var height = 400;
 // get year and energy type
 var year;
 var e_type;
@@ -14,14 +13,24 @@ var legendContainerSettings = {
               roundX: 10,
               roundY: 10
             }
-
+var legendBoxSettings = {
+       width: 60,
+       height: 15,
+       y: legendContainerSettings.y
+     };
 function drawMap(geo_data) {
+  // ************************************************** //
+  // unnecessary function and need to update the model  //
+  // ************************************************** //
+  function extractKeyValue(obj, value) {return Object.keys(obj)[Object.values(obj).indexOf(value)];};
+
   // create svg element & define default map, path generator, color scale & legend container
   var path = d3.geoPath();
-  var svg = d3.select("body")
+  var map = d3.select(".Map")
               .append("svg")
               .attr("width", width)
               .attr("height", height);
+
   var color = d3.scaleQuantize()
                 .domain([0, 1])
                 .range(d3.schemeGreens[5]);;
@@ -30,31 +39,39 @@ function drawMap(geo_data) {
     if (err) throw err;
 
     // draw homepage states
-    svg.append("g")
+    map.append("g")
          .attr("class", "states")
          .selectAll("path")
          .data(topojson.feature(geo_data, geo_data.objects.states).features)
          .enter().append("path")
          .attr("d", path)
          .attr("fill", "gray")
-         .attr("stroke", "black");
+         .attr("stroke", "white")
+         .attr("transform", 'scale(0.66, 0.66)')
+         .on("mouseover", function(){
+           d3.select(this)
+           .transition().duration(100)
+           .attr("fill", "orange")
+         })
+         .on("mouseout", function(){
+           d3.select(this)
+           .transition().duration(100)
+           .attr("fill", "gray")
+         })
+         .on("click", function(d){
+           drawChart(energy_data, extractKeyValue(states, parseInt(d.id)));
+         });
 
     var legend_data = [0, 0.25, 0.5, 0.75, 1]; // 5 quantiles
 
-    var legendBoxSettings = {
-           width: 60,
-           height: 15,
-           y: legendContainerSettings.y + 20
-         };
-
-    var legend = svg.selectAll("g.legend")
+    var legend = map.selectAll("g.legend")
                      .data(legend_data)
                      .enter().append("g")
                      .attr("class", "legend");
 
     legend.append("rect")
           .attr('x', function(d, i) {
-              return legendContainerSettings.x + legendBoxSettings.width * i + 30;
+              return legendContainerSettings.x + legendBoxSettings.width * i;
             })
           .attr('y', legendBoxSettings.y)
           .attr('width', legendBoxSettings.width)
@@ -71,9 +88,9 @@ function drawMap(geo_data) {
 
     legend.append("text")
           .attr("x", function(d, i){
-            return legendContainerSettings.x + legendBoxSettings.width * i + 38;
+            return legendContainerSettings.x + legendBoxSettings.width * i + 5;
           })
-          .attr("y", legendContainerSettings.y + 30)
+          .attr("y", legendContainerSettings.y+11)
           .attr("font-size", 11)
           .text(function(d, i){return default_text[i];});
 
@@ -112,13 +129,7 @@ function drawMap(geo_data) {
                         .domain(min_max)
                         .range([0, 1]);
       // update color (fill)
-
-      // ************************************************** //
-      // unnecessary function but need to update the model  //
-      // ************************************************** //
-      function extractKeyValue(obj, value) {return Object.keys(obj)[Object.values(obj).indexOf(value)];};
-
-      svg.selectAll("path")
+      map.selectAll("path")
         .transition()
         .duration(300)
         .attr("fill", function(d){
@@ -130,12 +141,7 @@ function drawMap(geo_data) {
           }
         });
 
-      svg.selectAll("path")
-         .on("mouseover", function(){
-           d3.select(this)
-           .transition().duration(100)
-           .attr("fill", "steelblue")
-         })
+      map.selectAll("path")
          .on("mouseout", function(){
            d3.select(this)
            .transition().duration(100)
@@ -146,8 +152,8 @@ function drawMap(geo_data) {
              } else{
                return "gray";
              }
-         })
-       });
+            })
+          });
 
         // update legend text
         // grouped thousands with two significant digits, "4,200"
@@ -166,7 +172,7 @@ function drawMap(geo_data) {
                          'max: ' + formatDecimal(d3.max(all_perc_values)*100)
                           ];
 
-        var new_legend = svg.selectAll('text');
+        var new_legend = map.selectAll('text');
 
         new_legend.text(function(d, i) {return legend_text[i];});
 
@@ -175,14 +181,8 @@ function drawMap(geo_data) {
 
      // change map with drop down selections
      var years = new Set();
-
-     energy_data.forEach(function(d){ years.add(d.year);});
-
-     d3.select("#e_types")
-           .on("change", function() {
-               e_type = document.getElementById("e_types").value;
-               updateColor(year, e_type);
-             });
+     years.add('-');
+     energy_data.forEach(function(d){ years.add(d.year);}); // extrac years in the data set
 
      var year_dropdown = d3.select("#year_dropdown");
 

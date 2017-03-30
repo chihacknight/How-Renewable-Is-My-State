@@ -9,12 +9,25 @@
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
   </head>
 
   <body>
-    <center><h1> Percentage of Renewable Energy Consumption (╯°□°)╯</h1></center>
-    <center><p>Pick a year 👉<select id="year_dropdown"/></p></center>
+    <!-- map is implemented with raw d3.js (can be switched to highmap)-->
+    <div class="Map" style="border: 1px solid black; width: 700px">
+      <p>Select a year <select id="year_dropdown"></select></p>
+    </div>
+
+    <!-- line chart is implemented with highcharts-->
+    <div id="Chart" style="border: 1px solid black">
+      <center><p><span style="font-weight:bold; color:gray; font-size:100px; opacity: 0.1">Select a state to view</span></p></center>
+    </div>
+
+    <button type="button" id="line">Line</button>
+    <button type="button" id="column">Bar</button><br>
+
     <script type="text/javascript" src="USMap.js"></script>
-    <center><svg></svg></center>
+    <script type="text/javascript" src="Charts.js"></script>
   </body>
 </html>
