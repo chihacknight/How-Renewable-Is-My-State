@@ -12,9 +12,9 @@ export default {
   @import '../style.scss';
   footer {
     height: $footer-height;
-    max-width: 960px;
     width: 100%;
-    min-width: 320px;
+    min-width: $site-min-width;
+    max-width: $site-max-width;
     display: flex;
     justify-content: space-around;
     .footer-item {

@@ -20,12 +20,9 @@
       height: $row-height;
     }
     .stat-name {
-      padding-left: 10px;
-      align-self: center;
-      font-size: 20px;
       flex: 1;
     }
-    .stat-value {
+    .stat-value, .stat-name {
       padding-left: 10px;
       align-self: center;
       font-size: 20px;

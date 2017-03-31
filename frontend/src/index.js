@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import app from 'src/app.vue'
+import VueRouter from 'vue-router'
 import pageHome from 'components/page-home'
 import pageFAQ from 'components/page-faq'
-import VueRouter from 'vue-router'
 import 'src/style'
 
 const routes = [

@@ -21,6 +21,7 @@ export default {
     .sitename {
       font-size: 40px;
       line-height: $header-height;
+      margin: 0;
       a {
         color: black;
         text-decoration: none;
