@@ -8,7 +8,7 @@
 </script>
 
 <style lang='sass-loader'>
-  $primary-color: #6C9B34;
+  @import '../style.scss';
   .faq-item {
     width: 100%;
   }

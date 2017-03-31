@@ -9,8 +9,8 @@
 </script>
 
 <style lang='sass-loader'>
-  $primary-color: #6C9B34;
-  $row-height: 75px;
+  @import '../style.scss';
+  $row-height: 70px;
   .info-row {
     display: flex;
     flex-direction: row nowrap;

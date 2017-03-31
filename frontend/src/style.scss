@@ -1,7 +1,10 @@
 @import '~leaflet/dist/leaflet.css';
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
 $site-font: 'PT Sans';
 $primary-color: #6C9B34; // http://paletton.com/#uid=12v0u0kllllaFw0g0qFqFg0w0aF
+$header-height: 70px;
+$footer-height: 50px;
 
 html {
   height: 100%;
@@ -18,7 +21,7 @@ h1 {
 #app {
   box-sizing: border-box;
   width: 100%;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - $footer-height);
   display: flex;
   flex-flow: column nowrap;
   align-items: center;

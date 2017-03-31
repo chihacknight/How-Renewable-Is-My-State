@@ -9,16 +9,16 @@ export default {
 </script>
 
 <style lang='sass-loader'>
-  $primary-color: #6C9B34;
+  @import '../style.scss';
   footer {
-    height: 50px;
+    height: $footer-height;
     max-width: 960px;
     width: 100%;
     min-width: 320px;
     display: flex;
     justify-content: space-around;
     .footer-item {
-      line-height: 50px;
+      line-height: $footer-height;
       a {
         padding: 0 10px;
         color: black;

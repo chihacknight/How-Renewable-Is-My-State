@@ -10,9 +10,9 @@ export default {
 </script>
 
 <style lang="sass-loader">
-  $primary-color: #6C9B34;
+  @import '../style.scss';
   nav {
-    height: 70px;
+    height: $header-height;
     max-width: 960px;
     width: 100%;
     min-width: 320px;
@@ -20,7 +20,7 @@ export default {
     justify-content: space-between;
     .sitename {
       font-size: 40px;
-      line-height: 70px;
+      line-height: $header-height;
       a {
         color: black;
         text-decoration: none;
@@ -32,7 +32,7 @@ export default {
       .nav-option{
         padding: 0 10px;
         font-size: 24px;
-        line-height: 70px;
+        line-height: $header-height;
         a {
           color: black;
           text-decoration: none;

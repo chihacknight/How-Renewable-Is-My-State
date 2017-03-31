@@ -23,6 +23,7 @@
 </script>
 
 <style lang='sass-loader'>
+  @import '../style.scss';
   #vis-component-container {
     width: 100%;
     display: flex;
