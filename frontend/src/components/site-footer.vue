@@ -17,8 +17,6 @@ export default {
     min-width: 320px;
     display: flex;
     justify-content: space-around;
-    position:absolute;
-    bottom: 0;
     .footer-item {
       line-height: 50px;
       a {
@@ -36,8 +34,8 @@ export default {
 
 <template>
   <footer>
-    <span class='footer-item'>&copy; How Renewable Is My State 2017</span>
-    <span class='footer-item'><a href="#">License</a></span>
+    <span class='footer-item'>Copyright &copy; 2017 How Renewable is my State</span>
+    <span class='footer-item'><a href="about/#License">License</a></span>
   </footer>
   <!--
   /*

@@ -29,7 +29,7 @@ class InfoViewSet(viewsets.ModelViewSet):
     # filter_backends = (filters.DjangoFilterBackend)
     filter_fields = ('msn', 'description', 'detail')
 
-class MapViewSet(viewsets.ModelViewSet):
+class MapDataViewSet(viewsets.ModelViewSet):
     """
     API endpoint showing total renewable over total energy
     """
