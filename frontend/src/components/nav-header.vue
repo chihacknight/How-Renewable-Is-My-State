@@ -10,12 +10,13 @@ export default {
 </script>
 
 <style lang="sass-loader">
-  @import '../style.scss';
+  @import '../global-vars.scss';
+  @import '../button.scss';
   nav {
     height: $header-height;
-    max-width: 960px;
     width: 100%;
-    min-width: 320px;
+    min-width: $site-min-width;
+    max-width: 960px;
     display: flex;
     justify-content: space-between;
     .sitename {
@@ -28,21 +29,9 @@ export default {
       }
     }
     .nav-options {
-      padding: 0;
-      margin: 0;
-      .nav-option{
-        padding: 0 10px;
-        font-size: 24px;
-        line-height: $header-height;
-        a {
-          color: black;
-          text-decoration: none;
-        }
-        &:hover {
-          background-color: $primary-color;
-          text-decoration: underline;
-        }
-      }
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
     }
   }
 </style>
@@ -53,9 +42,7 @@ export default {
       <router-link :to="{name:'home'}">{{ sitename }}</router-link>
     </h1>
     <div class ='nav-options'>
-      <span class='nav-option'>
-        <router-link :to="{name:'about'}">About</router-link>
-      </span>
+        <router-link class='button' :to="{name:'about'}">About</router-link>
     </div>
   </nav>
 </template>

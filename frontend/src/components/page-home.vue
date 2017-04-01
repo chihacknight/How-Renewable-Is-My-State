@@ -23,9 +23,10 @@
 </script>
 
 <style lang='sass-loader'>
-  @import '../style.scss';
+  @import '../global-vars.scss';
   #vis-component-container {
     width: 100%;
+    margin-top: 10px;
     display: flex;
     flex-flow: row nowrap;
   }
@@ -43,5 +44,5 @@
     </div>
     <div id='timeline-placeholder'>
     </div>
-</div>
+  </div>
 </template>

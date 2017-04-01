@@ -8,7 +8,7 @@
 </script>
 
 <style lang='sass-loader'>
-  @import '../style.scss';
+  @import '../global-vars.scss';
   .faq-item {
     width: 100%;
   }

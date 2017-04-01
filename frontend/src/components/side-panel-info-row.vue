@@ -9,7 +9,7 @@
 </script>
 
 <style lang='sass-loader'>
-  @import '../style.scss';
+  @import '../global-vars.scss';
   $row-height: 70px;
   .info-row {
     display: flex;
