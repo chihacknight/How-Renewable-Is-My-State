@@ -66,13 +66,13 @@ function drawChart(energy_data, selectedState, states){
                           }
                       },
                       series: [{
-                          name: 'Nuclear Energy Consumption',
+                          name: 'Nuclear',
                           data: Object.values(nuc_energy_values)
                       }, {
-                          name: 'Fosil Fuel Energy Consumption',
+                          name: 'Fosil Fuel',
                           data: Object.values(fosil_energy_values)
                       }, {
-                          name: 'Renewable Energy Consumption',
+                          name: 'Renewable',
                           data: Object.values(renew_energy_values)
                       }, {
                           name: 'Total Energy Consumption',

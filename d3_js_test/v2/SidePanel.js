@@ -65,7 +65,7 @@ function drawSidePanel(energy_data, selectedState, selectedYear, states){
     },
    series: [
      {
-       name: 'Nuclear Energy Consumption',
+       name: 'Nuclear',
        data: [{
          name: 'Total Energy Consumption',
          y: nuc_energy_consumption[0].data,
@@ -73,7 +73,7 @@ function drawSidePanel(energy_data, selectedState, selectedYear, states){
        }]
      },
      {
-       name: 'Fosil Fuel Energy Consumption',
+       name: 'Fosil Fuel',
        data: [{
          name: 'Total Energy Consumption',
          y: fosil_energy_consumption[0].data,
@@ -81,7 +81,7 @@ function drawSidePanel(energy_data, selectedState, selectedYear, states){
        }]
      },
      {
-       name: 'Renewable Energy Consumption',
+       name: 'Renewable',
        data: [{
          name: 'Total Energy Consumption',
          y: renew_energy_consumption[0].data,
@@ -111,13 +111,13 @@ function drawSidePanel(energy_data, selectedState, selectedYear, states){
       colorByPoint: true,
       id: 'Total Energy Consumption Breakdown',
         data: [
-          ['Nuclear Energy', nuc_energy_consumption[0].data], // keep it here so the color is right
+          ['Nuclear', nuc_energy_consumption[0].data], // keep it here so the color is right
         {
-            name: 'Fosil Fuel Energy',
+            name: 'Fosil Fuel',
             y: fosil_energy_consumption[0].data,
             drilldown: "Fosil Fuel Energy Consumption Breakdown"
         },{
-            name: 'Renewable Energy',
+            name: 'Renewable',
             y: renew_energy_consumption[0].data,
             drilldown: "Renewable Energy Consumption Breakdown"
         },
@@ -128,9 +128,9 @@ function drawSidePanel(energy_data, selectedState, selectedYear, states){
           name: "Fosil Fuel Energy Consumption Breakdown",
           id: "Fosil Fuel Energy Consumption Breakdown",
           data:[
-            ["Coal Energy", fosil_energy_consumption[0].data],
-            ['Natural Gas Energy', natural_gas_energy_consumption[0].data],
-            ['Petroleum Products Energy', petroleum_energy_consumption[0].data]
+            ["Coal", fosil_energy_consumption[0].data],
+            ['Natural Gas', natural_gas_energy_consumption[0].data],
+            ['Petroleum Products', petroleum_energy_consumption[0].data]
           ]
         }, {
           name: "Renewable Energy Consumption Breakdown",
