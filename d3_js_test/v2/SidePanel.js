@@ -31,6 +31,9 @@ function drawSidePanel(energy_data, selectedState, selectedYear, states){
     title: {
       text: selectedState + ' Energy Consumption in ' + selectedYear + ' Breakdown'
     },
+    lang:{
+      drillUpText: "◁- Back"
+    },
     subtitle: {
       text: "(Billion Btu)",
       align: "left"
@@ -47,77 +50,91 @@ function drawSidePanel(energy_data, selectedState, selectedYear, states){
       }
     },
     legend: {
-        enabled: false
+        enabled: true
     },
     tooltip :{
       enabled: false
     },
     plotOptions: {
         series: {
-            borderWidth: 0,
             dataLabels: {
                 enabled: true,
-            }
-        }
-    },
-    series: [{
-      name: 'Total Energy Consumption',
-      colorByPoint: true,
-      data: [{
-        name: 'Total Energy Consumption',
-        y: total_energy_consumption[0].data,
-        drilldown: 'Total Energy Consumption Breakdown'
-    }],
-  }],
-  drilldown: {
-    drillUpButton: {
-                relativeTo: 'spacingBox',
-                position: {
-                    y: 20,
-                    x: 0
-                },
-                theme: {
-                    fill: 'none',
-                    stroke: 'none',
-                    r: 0,
-                    states: {
-                        hover: {
-                            fill: 'none'
-                        }
-                    }
-                }
             },
+          stacking: 'normal'
+          }
+    },
+   series: [
+     {
+       name: 'Nuclear Energy Consumption',
+       data: [{
+         name: 'Total Energy Consumption',
+         y: nuc_energy_consumption[0].data,
+         drilldown: 'Total Energy Consumption Breakdown'
+       }]
+     },
+     {
+       name: 'Fosil Fuel Energy Consumption',
+       data: [{
+         name: 'Total Energy Consumption',
+         y: fosil_energy_consumption[0].data,
+         drilldown: 'Total Energy Consumption Breakdown'
+       }]
+     },
+     {
+       name: 'Renewable Energy Consumption',
+       data: [{
+         name: 'Total Energy Consumption',
+         y: renew_energy_consumption[0].data,
+         drilldown: 'Total Energy Consumption Breakdown'
+       }]
+     }],
+    drilldown: {
+      drillUpButton: {
+                  relativeTo: 'spacingBox',
+                  position: {
+                      y: 20,
+                      x: 0
+                  },
+                  theme: {
+                      fill: 'none',
+                      stroke: 'none',
+                      r: 0,
+                      states: {
+                          hover: {
+                              fill: 'none'
+                          }
+                      }
+                  }
+              },
     series: [{
       name: 'Total Energy Consumption Breakdown',
       colorByPoint: true,
       id: 'Total Energy Consumption Breakdown',
-      data: [{
-            name: 'Renewable Energy Consumption',
-            colorByPoint: true,
-            y: renew_energy_consumption[0].data,
-            drilldown: "Renewable Energy Consumption Breakdown"
-        }, {
-            name: 'Fosil Fuel Energy Consumption',
-            colorByPoint: true,
+        data: [
+          ['Nuclear Energy', nuc_energy_consumption[0].data], // keep it here so the color is right
+        {
+            name: 'Fosil Fuel Energy',
             y: fosil_energy_consumption[0].data,
             drilldown: "Fosil Fuel Energy Consumption Breakdown"
+        },{
+            name: 'Renewable Energy',
+            y: renew_energy_consumption[0].data,
+            drilldown: "Renewable Energy Consumption Breakdown"
         },
-          ['Nuclear Energy Consumption', nuc_energy_consumption[0].data],
           ['International Imports', int_import_energy_consumption[0].data],
           ['Interstate Im-/Exports', int_state_energy_consumption[0].data]
-        ]}, {
+        ]},
+        { // breakdown data
           name: "Fosil Fuel Energy Consumption Breakdown",
-          colorByPoint: true,
           id: "Fosil Fuel Energy Consumption Breakdown",
           data:[
-            ["Coal Energy Consumption", fosil_energy_consumption[0].data],
-            ['Natural Gas Energy Consumption', natural_gas_energy_consumption[0].data],
-            ['Petroleum Products Energy Consumption', petroleum_energy_consumption[0].data]
+            ["Coal Energy", fosil_energy_consumption[0].data],
+            ['Natural Gas Energy', natural_gas_energy_consumption[0].data],
+            ['Petroleum Products Energy', petroleum_energy_consumption[0].data]
           ]
         }, {
           name: "Renewable Energy Consumption Breakdown",
           id: "Renewable Energy Consumption Breakdown",
-          colorByPoint: true,
           data:[
             ['Fuel Ethanol (FE)', ethanol_energy_consumption[0].data],
             ['Geothermal', geothermal_energy_consumption[0].data],
