@@ -11,23 +11,26 @@
     <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
   </head>
 
   <body>
     <!-- map is implemented with raw d3.js (can be switched to highmap)-->
-    <div class="Map" style="border: 1px solid black; width: 700px">
-      <p>Select a year <select id="year_dropdown"></select></p>
+    <div class="Map" style="border: 1px solid black; width: 700px; float: left">
+    <!--  <p>Select a year <select id="year_dropdown"></select></p> -->
     </div>
 
-    <!-- line chart is implemented with highcharts-->
-    <div id="Chart" style="border: 1px solid black">
-      <center><p><span style="font-weight:bold; color:gray; font-size:100px; opacity: 0.1">Select a state to view</span></p></center>
-    </div>
+    <div id="SidePanel" style="border: 1px solid black; float: right"></div>
+
+    <!-- The following are implemented with highcharts-->
+    <div id="Chart" style="border: 1px solid black"></div>
 
     <button type="button" id="line">Line</button>
     <button type="button" id="column">Bar</button><br>
 
     <script type="text/javascript" src="USMap.js"></script>
     <script type="text/javascript" src="Charts.js"></script>
+    <script type="text/javascript" src="SidePanel.js"></script>
+
   </body>
 </html>

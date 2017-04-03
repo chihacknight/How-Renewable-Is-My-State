@@ -1,23 +1,23 @@
-function drawChart(energy_data, state){
+function drawChart(energy_data, selectedState, states){
 
-  if ($('#Chart').highcharts() != undefined) {
+  if ($('#Chart').highcharts() != undefined || $('#SidePanel').highcharts() != undefined) {
     mychart.destroy();
   }
 
   var total_energy_consumption = energy_data.filter(function(d){
-    return d.statecode ==state && d.msn == "TETCB";
+    return d.statecode ==selectedState && d.msn == "TETCB";
   })
 
   var renew_energy_consumption = energy_data.filter(function(d){
-    return d.statecode ==state && d.msn == "RETCB";
+    return d.statecode ==selectedState && d.msn == "RETCB";
   })
 
   var nuc_energy_consumption = energy_data.filter(function(d){
-    return d.statecode ==state && d.msn == "NUETB";
+    return d.statecode ==selectedState && d.msn == "NUETB";
   })
 
   var fosil_energy_consumption = energy_data.filter(function(d){
-    return d.statecode ==state && d.msn == "FFTCB";
+    return d.statecode ==selectedState && d.msn == "FFTCB";
   })
 
   total_energy_values = {};
@@ -38,31 +38,45 @@ function drawChart(energy_data, state){
   // this is where the magic happens... using highchart library
   mychart = Highcharts.chart('Chart', {
                       title: {
-                      text: state + ' Energy Consumption From '+d3.min(years)+' To '+d3.max(years)
+                        text: selectedState + ' Energy Consumption From '+d3.min(years)+' To '+d3.max(years)
+                      },
+                      subtitle: {
+                        text: "(Billion Btu)",
+                        align: "left"
                       },
                       yAxis: {
                           title: {
-                              text: 'Energy Consumption Value'
+                              text: 'Energy Consumption Amount'
                           },
                           min: 0
                       },
                       plotOptions: {
                           series: {
-                              pointStart: d3.min(years)
+                              pointStart: d3.min(years),
+                              point: {
+                                events: {
+                                  mouseOver: function() {
+                                    updateColor(this.x, energy_data, states);
+                                  },
+                                  click: function() {
+                                    drawSidePanel(energy_data, selectedState, this.x, states)
+                                  }
+                                }
+                              }
                           }
                       },
                       series: [{
-                          name: 'Total Energy Consumption',
-                          data: Object.values(total_energy_values)
-                      }, {
-                          name: 'Nuclear Energy Consumption',
+                          name: 'Nuclear',
                           data: Object.values(nuc_energy_values)
                       }, {
-                          name: 'Renewable Energy Consumption',
+                          name: 'Fosil Fuel',
+                          data: Object.values(fosil_energy_values)
+                      }, {
+                          name: 'Renewable',
                           data: Object.values(renew_energy_values)
                       }, {
-                          name: 'Fosil Fuel Energy Consumption',
-                          data: Object.values(fosil_energy_values)
+                          name: 'Total Energy Consumption',
+                          data: Object.values(total_energy_values)
                       }],
                       legend: {
                           align: 'center',
