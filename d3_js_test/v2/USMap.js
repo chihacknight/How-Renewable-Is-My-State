@@ -1,6 +1,9 @@
-function updateColor(year, energy_data, states) {
+// ************************************************** //
+// unnecessary function and need to update the model  //
+// ************************************************** //
+function extractKeyValue(obj, value) {return Object.keys(obj)[Object.values(obj).indexOf(value)];};
 
-  function extractKeyValue(obj, value) {return Object.keys(obj)[Object.values(obj).indexOf(value)];};
+function updateColor(year, energy_data, states) {
 
   var color = d3.scaleQuantize()
                 .domain([0, 1])
@@ -15,13 +18,24 @@ function updateColor(year, energy_data, states) {
   var total_data = energy_data.filter(function(d){
           return d.year == year && d.msn == "TETCB";
   })
+  var int_imp_data = energy_data.filter(function(d){
+          return d.year == year && d.msn == "ELNIB";
+  })
+  var interstate_data = energy_data.filter(function(d){
+          return d.year == year && d.msn == "ELISB";
+  })
 
   var renewable_values = {};
   var total_values = {};
+  var int_imp_values = {};
+  var interstate_values = {};
   var renewable_perc = {};
+
   for (var i = 0; i < total_data.length; i++) {
     renewable_values[renewable_data[i].statecode] = renewable_data[i].data;
     total_values[total_data[i].statecode] = total_data[i].data;
+    int_imp_values[int_imp_data[i].statecode] = int_imp_data[i].data;
+    interstate_values[interstate_data[i].statecode] = interstate_data[i].data;
   }
 
   var all_states = Object.keys(states);
@@ -29,7 +43,9 @@ function updateColor(year, energy_data, states) {
   for (var i = 0; i < all_states.length; i++) {
     var renew_dat = renewable_values[all_states[i]];
     var tot_dat = total_values[all_states[i]];
-    renewable_perc[all_states[i]] = renew_dat / tot_dat;
+    var int_imp_dat = int_imp_values[all_states[i]];
+    var interstate_dat = interstate_values[all_states[i]];
+    renewable_perc[all_states[i]] = renew_dat / (tot_dat-int_imp_dat-interstate_dat);
   }
 
   var min_max = d3.extent(d3.values(renewable_perc));
@@ -90,11 +106,6 @@ function updateColor(year, energy_data, states) {
  } // end of function updateColor
 
 function drawMap(geo_data) {
-  // ************************************************** //
-  // unnecessary function and need to update the model  //
-  // ************************************************** //
-  function extractKeyValue(obj, value) {return Object.keys(obj)[Object.values(obj).indexOf(value)];};
-
   // define width and height
   var width = 700;
   var height = 400;
