@@ -52,7 +52,7 @@
 <template>
   <div>
     <div id='vis-component-container'>
-      <d3Map></d3Map>
+      <mapWrapper mapId='map'></mapWrapper>
       <sidePanel></sidePanel>
     </div>
     <div id='timeline-placeholder'>
