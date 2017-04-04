@@ -1,7 +1,9 @@
 <script>
   /* globals ENVIRONMENT,PORT */
   import mapWrapper from 'components/map-wrapper'
+  import d3Map from 'components/d3-map'
   import sidePanel from 'components/side-panel'
+  import chart from 'components/chart'
 
   export default {
     methods: {
@@ -18,7 +20,7 @@
           });
       }
     },
-    components: {mapWrapper, sidePanel}
+    components: {d3Map, sidePanel}
   }
 </script>
 
@@ -41,7 +43,7 @@
 <template>
   <div>
     <div id='vis-component-container'>
-      <mapWrapper mapId='map'></mapWrapper>
+      <d3Map></d3Map>
       <sidePanel></sidePanel>
     </div>
     <div id='timeline-placeholder'>
