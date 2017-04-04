@@ -10,38 +10,28 @@ export default {
 </script>
 
 <style lang="sass-loader">
-  $primary-color: #6C9B34;
+  @import '../global-vars.scss';
+  @import '../button.scss';
   nav {
-    height: 70px;
-    max-width: 960px;
+    height: $header-height;
     width: 100%;
-    min-width: 320px;
+    min-width: $site-min-width;
+    max-width: 960px;
     display: flex;
     justify-content: space-between;
     .sitename {
       font-size: 40px;
-      line-height: 70px;
+      line-height: $header-height;
+      margin: 0;
       a {
         color: black;
         text-decoration: none;
       }
     }
     .nav-options {
-      padding: 0;
-      margin: 0;
-      .nav-option{
-        padding: 0 10px;
-        font-size: 24px;
-        line-height: 70px;
-        a {
-          color: black;
-          text-decoration: none;
-        }
-        &:hover {
-          background-color: $primary-color;
-          text-decoration: underline;
-        }
-      }
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
     }
   }
 </style>
@@ -52,9 +42,7 @@ export default {
       <router-link :to="{name:'home'}">{{ sitename }}</router-link>
     </h1>
     <div class ='nav-options'>
-      <span class='nav-option'>
-        <router-link :to="{name:'about'}">About</router-link>
-      </span>
+        <router-link class='button' :to="{name:'about'}">About</router-link>
     </div>
   </nav>
 </template>

@@ -9,8 +9,8 @@
 </script>
 
 <style lang='sass-loader'>
-  $primary-color: #6C9B34;
-  $row-height: 75px;
+  @import '../global-vars.scss';
+  $row-height: 70px;
   .info-row {
     display: flex;
     flex-direction: row nowrap;
@@ -20,12 +20,9 @@
       height: $row-height;
     }
     .stat-name {
-      padding-left: 10px;
-      align-self: center;
-      font-size: 20px;
       flex: 1;
     }
-    .stat-value {
+    .stat-value, .stat-name {
       padding-left: 10px;
       align-self: center;
       font-size: 20px;

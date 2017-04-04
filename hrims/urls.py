@@ -40,6 +40,7 @@ urlpatterns = [
     url('^schema/$', schema_view),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^$', TemplateView.as_view(template_name='home.html')),
+    
     #url(r'^data.geojson$', GeoJSONLayerView.as_view(model=Map), name='map'),
     #url(r'^map.geojson$', Map.as_view(model=Map, properties=('statecode',)), name='map'),
 

@@ -9,14 +9,10 @@
 </script>
 
 <style lang='sass-loader'>
-  html {
-    height: 100%;
-  }
-  body {
-    min-height: 100%;
-    display: flex;
-  }
+  @import './style.scss';
   .router-view {
+    min-width: $site-min-width;
+    max-width: $site-max-width;
     flex: 1;
   }
 </style>

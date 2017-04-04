@@ -9,25 +9,16 @@ export default {
 </script>
 
 <style lang='sass-loader'>
-  $primary-color: #6C9B34;
+  @import '../global-vars.scss';
   footer {
-    height: 50px;
+    height: $footer-height;
+    min-width: $site-min-width;
     max-width: 960px;
     width: 100%;
-    min-width: 320px;
     display: flex;
     justify-content: space-around;
     .footer-item {
-      line-height: 50px;
-      a {
-        padding: 0 10px;
-        color: black;
-        text-decoration: none;
-        &:hover {
-          background-color: $primary-color;
-          text-decoration: underline;
-        }
-      }
+      line-height: $footer-height;
     }
   }
 </style>
@@ -35,29 +26,5 @@ export default {
 <template>
   <footer>
     <span class='footer-item'>Copyright &copy; 2017 How Renewable is my State</span>
-    <span class='footer-item'><a href="about/#License">License</a></span>
   </footer>
-  <!--
-  /*
-  Copyright (c) 2017 How Renewable Is My State
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
-  */
-  -->
 </template>
