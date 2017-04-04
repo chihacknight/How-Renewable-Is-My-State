@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> Sample Map</title>
+    <!-- Use D3.js v4 -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+  </head>
+
+  <body>
+    <center><h1> Percentage of Renewable Energy Consumption (╯°□°)╯</h1></center>
+    <center><p>Pick a year 👉<select id="year_dropdown"/></p></center>
+    <script type="text/javascript" src="USMap.js"></script>
+    <center><svg></svg></center>
+  </body>
+</html>
