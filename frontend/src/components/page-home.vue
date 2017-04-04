@@ -4,6 +4,7 @@
   import d3Map from 'components/d3-map'
   import sidePanel from 'components/side-panel'
   import chart from 'components/chart'
+  import axois from 'axios'
 
   export default {
     methods: {

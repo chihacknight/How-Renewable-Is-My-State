@@ -2,6 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "dependencies": {
+    "axios": "^0.16.0",
     "d3": "^4.7.4",
     "d3-queue": "^3.0.5",
     "d3-scale-chromatic": "^1.1.1",
