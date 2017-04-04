@@ -1,6 +1,7 @@
 <script>
   /* globals ENVIRONMENT,PORT */
   import mapWrapper from 'components/map-wrapper'
+  import d3Map from 'components/d3-map'
   import sidePanel from 'components/side-panel'
   import axios from 'axios'
 
@@ -51,7 +52,7 @@
 <template>
   <div>
     <div id='vis-component-container'>
-      <mapWrapper mapId='map'></mapWrapper>
+      <d3Map></d3Map>
       <sidePanel></sidePanel>
     </div>
     <div id='timeline-placeholder'>
