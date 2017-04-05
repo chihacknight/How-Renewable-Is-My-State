@@ -31,7 +31,7 @@
     }));
   }
     ,
-    components: {mapWrapper, sidePanel}
+    components: {d3Map, sidePanel}
   }
 </script>
 
@@ -52,7 +52,7 @@
 <template>
   <div>
     <div id='vis-component-container'>
-      <mapWrapper mapId='map'></mapWrapper>
+      <d3Map></d3Map>
       <sidePanel></sidePanel>
     </div>
     <div id='timeline-placeholder'>
