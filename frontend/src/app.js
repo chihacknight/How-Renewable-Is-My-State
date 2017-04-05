@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import pageHome from 'components/page-home'
 import pageFAQ from 'components/page-faq'
 import 'src/style'
+import d3-scale-chromatic from 'd3-scale-chromatic'
 
 const routes = [
   {path: '/', name: 'home', component: pageHome},

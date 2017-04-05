@@ -1,4 +1,6 @@
 <script>
+import * as d3 from 'd3';
+//import d3-scale-chromatic from 'd3-scale-chromatic';
 methods: {
 // ************************************************** //
 // unnecessary function and need to update the model  //
