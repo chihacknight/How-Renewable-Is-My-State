@@ -1,13 +1,14 @@
 <script>
 import * as d3 from 'd3';
 //import d3-scale-chromatic from 'd3-scale-chromatic';
+export default {
 methods: {
 // ************************************************** //
 // unnecessary function and need to update the model  //
 // ************************************************** //
-function extractKeyValue(obj, value) {return Object.keys(obj)[Object.values(obj).indexOf(value)];};
+extractKeyValue: function (obj, value) {return Object.keys(obj)[Object.values(obj).indexOf(value)];},
 
-function updateColor(year, energy_data, states) {
+updateColor: function (year, energy_data, states) {
 
   var color = d3.scaleQuantize()
                 .domain([0, 1])
@@ -107,9 +108,9 @@ function updateColor(year, energy_data, states) {
     new_legend.text(function(d, i) {return legend_text[i];});
 
 
- } // end of function updateColor
+ } , // end of function updateColor
 
-function drawMap(geo_data) {
+drawMap: function(geo_data) {
   // define width and height
   var width = 700;
   var height = 400;
@@ -229,17 +230,19 @@ function drawMap(geo_data) {
   } // end of function colorMap
 
   d3.queue()
-        .defer(d3.json, "energy.json")
-        .defer(d3.json, "states.json")
+        .defer(d3.json, "../../d3_js_test/v2/energy.json")
+        .defer(d3.json, "../../d3_js_test/v2/states.json")
         .await(colorMap);
 
-} // end of function drawMap
+} ,// end of function drawMap
 
 
 // draw map which calls colorMap
+ready: function() {
 d3.json("../../data/us-10m.v1.json", drawMap);
-
-
+console.log("READIED")
+}
+}
 }
 
 
