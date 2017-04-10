@@ -84,22 +84,22 @@ WSGI_APPLICATION = 'hrims.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django',
-        'USER': 'postgres',
-        'PASSWORD': '1MoreTime!',
-        'PORT': '5432',
-    }
-    # ,
-    # 'aws': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'hrims',
-    #     'USER': 'hrimsadmin',
-    #     'PASSWORD': 'c8TszcDt9TrDVTxN',
-    #     'HOST': 'hrimsdb.cxkvf9a4xfcx.us-east-1.rds.amazonaws.com',
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'django',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '1MoreTime!',
     #     'PORT': '5432',
     # }
+    # ,
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hrims',
+        'USER': 'hrimsadmin',
+        'PASSWORD': 'c8TszcDt9TrDVTxN',
+        'HOST': 'hrimsdb.cxkvf9a4xfcx.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
+    }
 }
 
 REST_FRAMEWORK = {

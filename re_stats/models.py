@@ -1,23 +1,41 @@
 from django.db import models
 
+class State(models.Model):
+    state_code = models.CharField(max_length=2, primary_key=True)
+    state_name = models.CharField(max_length=32)
 
+    def __str__(self):
+        return self.state_code
 
-class Data(models.Model):
-    original_row_id = models.IntegerField()
-    data_status = models.CharField("Date data was last updated", max_length=5)
-    msn = models.CharField("Data Series Names", max_length=5)
-    statecode = models.CharField(max_length=2)
+class ConsumptionByYear(models.Model):
+    state = models.ForeignKey(State, on_delete=models.CASCADE)
+    state_rank = models.IntegerField()
     year = models.IntegerField()
-    data = 	models.FloatField("Value for given MSN. Units may vary")
-    # def __unicode__(self):
-    #     return u'{0}'.format(self.msn)
+    last_updated = models.DateField('Date data was last updated')
 
-class Info(models.Model):
-    msn = models.CharField("Data Series Names", max_length=5)
-    description = models.CharField(max_length=255)
-    detail = models.CharField(max_length=255)
+    total_energy_consumption = models.FloatField()
 
-class MapData(models.Model):
-    statecode = models.CharField(max_length=2)
-    year = models.IntegerField()
-    re_over_te = models.FloatField("renewable total over total")
+    fossil_fuels_total_consumption = models.FloatField()
+    coal_total_consumption = models.FloatField()
+    natural_gas_total_consumption = models.FloatField()
+    petroleum_total_consumption = models.FloatField()
+
+    nuclear_total_consumption = models.FloatField()
+
+    renewable_energy_total_consumption = models.FloatField()
+    fuel_ethanol_production_losses = models.FloatField()
+    fuel_ethanol_total_consumption = models.FloatField()
+    geothermal_total_consumption = models.FloatField()
+    hydropower_total_consumption = models.FloatField()
+    solar_total_consumption = models.FloatField()
+    wood_and_waste_total_consumption = models.FloatField()
+    wind_total_consumption = models.FloatField()
+
+    net_international_imports = models.FloatField()
+    net_interstate_imports = models.FloatField()
+
+    def __str__(self):
+        return (str(self.state.state_name) + ' ' + str(self.year))
+
+    class Meta:
+        ordering = ['year']

@@ -238,11 +238,15 @@ function drawMap(geo_data) {
 
 // draw map which calls colorMap
 d3.json("../../data/us-10m.v1.json", drawMap);
-
-
 }
 
-
+export default {
+  data() {
+    return {
+      name: 'D3Map',
+    }
+  },
+}
 </script>
 
 <style lang="scss">
