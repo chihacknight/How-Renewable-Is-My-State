@@ -1,216 +1,113 @@
 <script>
-import { mockData } from '../mock-data/data'
-import infoRow from './side-panel-info-row'
-import coalIcon from '../icons/hrims_icons_coal.png'
-import gasIcon from '../icons/hrims_icons_gas.png'
-import hydroIcon from '../icons/hrims_icons_hydro.png'
+import drilldown from 'highcharts/modules/drilldown.js'
+import Highcharts from 'highcharts'
+
+import jquery from 'jquery'
 
 export default {
-  data () {
-    return {
-      name: 'sidePanel',
-      mockData,
-      coalIcon,
-      gasIcon,
-      hydroIcon,
-    }
+    data () {
+      return {}
   },
-  methods: {
-    stateCodeToName: function (stateCode) {
-      var stateName=''
-      switch(stateCode) {
-        case "AL":
-            stateName='Alabama'
-            break;
-        case "AK":
-            stateName='Alaska'
-            break;
-        case "AL":
-            stateName='Arizona'
-            break;
-        case "AZ":
-            stateName='Arkansas'
-            break;
-        case "AR":
-            stateName='California'
-            break;
-        case "CA":
-            stateName='Colorado'
-            break;
-        case "CO":
-            stateName='Connecticut'
-            break;
-        case "CT":
-            stateName='Delaware'
-            break;
-        case "DC":
-            stateName='Dist. of Columbia'
-            break;
-        case "FL":
-            stateName='Florida'
-            break;
-        case "GA":
-            stateName='Georgia'
-            break;
-        case "HI":
-            stateName='Hawaii'
-            break;
-        case "ID":
-            stateName='Idaho'
-            break;
-        case "IL":
-            stateName='Illinois'
-            break;
-        case "IN":
-            stateName='Indiana'
-            break;
-        case "IA":
-            stateName='Iowa'
-            break;
-        case "KS":
-            stateName='Kansas'
-            break;
-        case "KY":
-            stateName='Kentucky'
-            break;
-        case "LA":
-            stateName='Louisiana'
-            break;
-        case "ME":
-            stateName='Maine'
-            break;
-        case "MD":
-            stateName='Maryland'
-            break;
-        case "MA":
-            stateName='Massachusetts'
-            break;
-        case "MI":
-            stateName='Michigan'
-            break;
-        case "MN":
-            stateName='Minnesota'
-            break;
-        case "MS":
-            stateName='Mississippi'
-            break;
-        case "MO":
-            stateName='Missouri'
-            break;
-        case "MT":
-            stateName='Montana'
-            break;
-        case "NE":
-            stateName='Nebraska'
-            break;
-        case "NV":
-            stateName='Nevada'
-            break;
-        case "NH":
-            stateName='New Hampshire'
-            break;
-        case "NJ":
-            stateName='New Jersey'
-            break;
-        case "NM":
-            stateName='New Mexico'
-            break;
-        case "NY":
-            stateName='New York'
-            break;
-        case "NC":
-            stateName='North Carolina'
-            break;
-        case "ND":
-            stateName='North Dakota'
-            break;
-        case "OH":
-            stateName='Ohio'
-            break;
-        case "OK":
-            stateName='Oklahoma'
-            break;
-        case "OR":
-            stateName='Oregon'
-            break;
-        case "PA":
-            stateName='Pennsylvania'
-            break;
-        case "RI":
-            stateName='Rhode Island'
-            break;
-        case "SC":
-            stateName='South Carolina'
-            break;
-        case "SD":
-            stateName='South Dakota'
-            break;
-        case "TN":
-            stateName='Tennessee'
-            break;
-        case "TX":
-            stateName='Texas'
-            break;
-        case "UT":
-            stateName='Utah'
-            break;
-        case "VT":
-            stateName='Vermont'
-            break;
-        case "WA":
-            stateName='Washington'
-            break;
-        case "WV":
-            stateName='West Virginia'
-            break;
-        case "WI":
-            stateName='Wisconsin'
-            break;
-        case "WY":
-            stateName='Wyoming'
-            break;
-        default:
-            stateName = 'State code not found'
-      }
-      return stateName
-    }
-  },
-  components: {infoRow}
+  props: ['mapId', 'sidepaneldata'],
+  mounted () {
+      var options = {
+
+      chart: {
+          height: 300
+      },
+
+      title: {
+          text: 'Highcharts Drilldown Plugin'
+      },
+
+      xAxis: {
+          categories: true
+      },
+
+      drilldown: {
+          series: [{
+              id: 'fruits',
+              name: 'Fruits',
+              data: [
+                  ['Apples', 4],
+                  ['Pears', 6],
+                  ['Oranges', 2],
+                  ['Grapes', 8]
+              ]
+          }, {
+              id: 'cars',
+              name: 'Cars',
+              data: [{
+                  name: 'Toyota',
+                  y: 4,
+                  drilldown: 'toyota'
+              },
+              ['Volkswagen', 3],
+              ['Opel', 5]
+              ]
+          }, {
+              id: 'toyota',
+              name: 'Toyota',
+              data: [
+                  ['RAV4', 3],
+                  ['Corolla', 1],
+                  ['Carina', 4],
+                  ['Land Cruiser', 5]
+              ]
+          }]
+      },
+
+      legend: {
+          enabled: false
+      },
+
+      plotOptions: {
+          series: {
+              dataLabels: {
+                  enabled: true
+              },
+              shadow: false
+          },
+          pie: {
+              size: '80%'
+          }
+      },
+
+      series: [{
+          name: 'Overview',
+          colorByPoint: true,
+          data: [{
+              name: 'Fruits',
+              y: 10,
+              drilldown: 'fruits'
+          }, {
+              name: 'Cars',
+              y: 12,
+              drilldown: 'cars'
+          }, {
+              name: 'Countries',
+              y: 8
+          }]
+      }]
+  };
+  options.chart.renderTo = 'container';
+  options.chart.type = 'column';
+  var chart1 = new Highcharts.Chart(options);
+
+  }
 }
+
 </script>
 
-<style lang="sass-loader">
-  #side-panel-wrapper{
-    border: 1px solid black;
-    display: flex;
-    flex-flow: column nowrap;
-    flex: 1;
-    #side-panel-title-wrapper {
-      display: inherit;
-      justify-content: space-between;
-      p {
-        font-size: 20px;
-      }
-    }
-    .flex-one {
-      flex: 1;
-    }
-  }
-
+<style lang="scss">
 </style>
 
 <template>
-  <div id='side-panel-wrapper'>
-    <div id='side-panel-title-wrapper'>
-      <p class='flex-one'>{{stateCodeToName(mockData[1].statecode)}}</p>
-      <p>1st of 51</p>
-    </div>
-    <div id='side-panel-title-wrapper'>
-      <p class='flex-one'>Total Energy Consumption</p>
-      <p>by MMBtu</p>
-    </div>
-    <infoRow :stat-icon="coalIcon" :stat-name='"Renewable"' :stat-value='mockData[1].data'></infoRow>
-    <infoRow :stat-icon="gasIcon" :stat-name='"Fossil Fuel"' :stat-value='mockData[2].data'></infoRow>
-    <infoRow :stat-icon="hydroIcon" :stat-name='"Nuclear"' :stat-value='mockData[3].data'></infoRow>
-  </div>
+<div>
+<!--<div class="Map" style="border: 1px solid black; width: 700px; float: left"></div>-->
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div> <p> {{ sidepaneldata }} </p>
+</div>
+</div>
+
 </template>

@@ -27,7 +27,7 @@ export default {
 ]
       }
   },
-  props: ['mapId'],
+  props: ['mapId', 'data'],
   mounted () {
       var data = [
     ['DE.SH', 728],
@@ -47,10 +47,10 @@ export default {
     ['DE.TH', 704],
     ['DE.', 361]
 ];
-      jquery.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=germany.geo.json&callback=?', function (geojson) {
+      this.$map = jquery.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=germany.geo.json&callback=?', function (geojson) {
 
           // Initiate the chart
-          Highcharts.mapChart('container', {
+          Highcharts.mapChart(mapId, {
 
               title: {
                   text: 'GeoJSON in Highmaps'
@@ -95,7 +95,8 @@ export default {
 
 <template>
 <!--<div class="Map" style="border: 1px solid black; width: 700px; float: left"></div>-->
-<div id="container" style="width:300px%; height:400px;">
+  <!-- <div :id="mapId" class="leaflet-map-wrapper"></div> -->
+<div id="mapId" style="width:300px%; height:400px;" class="d3-map">
 </div>
 
 

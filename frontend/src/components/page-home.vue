@@ -7,28 +7,39 @@
 
 
   export default {
+      data () {
+        return {
+           sidepaneldata: ["test"]
+        }
+    },
+    methods: {
+         query: function() { axios.all([
+              axios.get(API_HOSTNAME + '/api/data', {
+              params: {
+                year: 2014
+              }
+              }),
+              axios.get(API_HOSTNAME + '/api/mapdata', {
+              params: {
+                year: 2014
+              }
+              }),
+              axios.get(API_HOSTNAME + '/api/info')
+
+          ])
+          .then(axios.spread(function (dataResponse, mapDataResponse, infoResponse) {
+            //... but this callback will be executed only when both requests are complete.
+            //console.log('Data', dataResponse.data);
+            //console.log('MapData', mapDataResponse.data);
+            //console.log('DataInfo', infoResponse.data);
+            var sidepaneldata =  dataResponse.data;
+            console.log(sidepaneldata);
+          }));
+      }
+  },
   // Fetches posts when the component is created.
   created() {
-  axios.all([
-        axios.get(API_HOSTNAME + '/api/data', {
-        params: {
-          year: 2014
-        }
-        }),
-        axios.get(API_HOSTNAME + '/api/mapdata', {
-        params: {
-          year: 2014
-        }
-        }),
-        axios.get(API_HOSTNAME + '/api/info')
-
-    ])
-    .then(axios.spread(function (dataResponse, mapDataResponse, infoResponse) {
-      //... but this callback will be executed only when both requests are complete.
-      console.log('Data', dataResponse.data);
-      console.log('MapData', mapDataResponse.data);
-      console.log('DataInfo', infoResponse.data);
-    }));
+      this.query();
   }
     ,
     components: {d3Map, sidePanel}
@@ -50,10 +61,11 @@
 </style>
 
 <template>
+
   <div>
     <div id='vis-component-container'>
-      <d3Map></d3Map>
-      <sidePanel></sidePanel>
+      <d3Map mapId='map'></d3Map>
+      <sidePanel :sidepaneldata=this.sidepaneldata></sidePanel>
     </div>
     <div id='timeline-placeholder'>
     </div>
