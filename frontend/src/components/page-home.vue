@@ -1,38 +1,49 @@
 <script>
   /* globals ENVIRONMENT,PORT */
   import mapWrapper from 'components/map-wrapper'
+  import d3Map from 'components/d3-map'
   import sidePanel from 'components/side-panel'
+  import axios from 'axios'
+
 
   export default {
-    methods: {
-      updateMessage: function (message) {
-        let newMessage = message + ' Now go build something!'
-        this.message = newMessage
-    },
-      fetchData: function(request) {
-          fetch('http://localhost:8000/api/data/') // Call the fetch function passing the url of the API as a parameter
-          .then((response) => response.json())
-          .then(function(data) {
-              let values = data.results;
-              console.log(values);
-          });
-      }
-    },
+  // Fetches posts when the component is created.
+  created() {
+  axios.all([
+        axios.get(API_HOSTNAME + '/api/data', {
+        params: {
+          year: 2014
+        }
+        }),
+        axios.get(API_HOSTNAME + '/api/mapdata', {
+        params: {
+          year: 2014
+        }
+        }),
+        axios.get(API_HOSTNAME + '/api/info')
+
+    ])
+    .then(axios.spread(function (dataResponse, mapDataResponse, infoResponse) {
+      //... but this callback will be executed only when both requests are complete.
+      console.log('Data', dataResponse.data);
+      console.log('MapData', mapDataResponse.data);
+      console.log('DataInfo', infoResponse.data);
+    }));
+  }
+    ,
     components: {mapWrapper, sidePanel}
   }
 </script>
 
 <style lang='sass-loader'>
+  @import '../global-vars.scss';
   #vis-component-container {
     width: 100%;
+    margin-top: 10px;
     display: flex;
     flex-flow: row nowrap;
-    sidePanel {
-      flex: 1;
-    }
   }
   #timeline-placeholder {
-    width: 100%;
     height: 200px;
     border: 1px solid black;
   }
@@ -41,10 +52,10 @@
 <template>
   <div>
     <div id='vis-component-container'>
-      <mapWrapper mapId='map'></mapWrapper>
+      <d3Map></d3Map>
       <sidePanel></sidePanel>
     </div>
     <div id='timeline-placeholder'>
     </div>
-</div>
+  </div>
 </template>

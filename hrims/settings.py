@@ -106,7 +106,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
-    'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
@@ -165,10 +164,11 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, './frontend/dist'),
+    os.path.join(BASE_DIR, './d3_js_test/v2/'),
     #os.path.join(PROJECT_ROOT, '/frontend/dist'),
     #os.path.join(PROJECT_ROOT, 'static/frontend/dist/'),
-    './frontend/dist/'
+    #'./frontend/dist/'
 )
 
 # Simplified static file serving.
