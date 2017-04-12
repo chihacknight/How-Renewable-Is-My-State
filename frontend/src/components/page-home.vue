@@ -1,10 +1,9 @@
 <script>
   /* globals ENVIRONMENT,PORT */
-  import mapWrapper from 'components/map-wrapper'
   import d3Map from 'components/d3-map'
   import sidePanel from 'components/side-panel'
   import axios from 'axios'
-
+  import filter from 'd3'
 
   export default {
   // Fetches posts when the component is created.
@@ -15,7 +14,7 @@
           year: 2014
         }
         }),
-        axios.get(API_HOSTNAME + '/api/mapdata', {
+        axios.get('http://hrims.herokuapp.com' + '/api/mapdata', {
         params: {
           year: 2014
         }

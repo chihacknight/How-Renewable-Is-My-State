@@ -16,17 +16,19 @@ updateColor: function (year, energy_data, states) {
 
   var map = d3.select(".Map");
 
+
+
   // filter data
-  var renewable_data = energy_data.filter(function(d){
+  var renewable_data = dataResponse.data.filter(function(d){
           return d.year == year && d.msn == "RETCB";
   })
-  var total_data = energy_data.filter(function(d){
+  var total_data = dataResponse.data.filter(function(d){
           return d.year == year && d.msn == "TETCB";
   })
-  var int_imp_data = energy_data.filter(function(d){
+  var int_imp_data = dataResponse.data.filter(function(d){
           return d.year == year && d.msn == "ELNIB";
   })
-  var interstate_data = energy_data.filter(function(d){
+  var interstate_data = dataResponse.data.filter(function(d){
           return d.year == year && d.msn == "ELISB";
   })
 
