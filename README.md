@@ -1,28 +1,8 @@
 
 # How-Renewable-Is-My-State-
 
-python:
-  - 3.6
-  - DJANGO=1.10
+http://howrenewableismystate.com/
 
-services: postgresql
+This site was built by the How Renewable Is My State breakout group at Chi Hack Night.
 
-
-install:
-  - clone from repo
-  - ```pip install -r requirements.txt```
-
-before_script:
-  - ```psql -c "CREATE DATABASE django;" -U postgres```
-
-loading data:
-  - ```python ./data/load_data.py ```
-- This _should_ load in the data from the flat file, not tested atm
-
-Running:
-  - ```python manage.py runserver```
-
-Testing:
-  - ```python manage.py test```
-    - no tests written atm
-
+This visualization uses energy consumption data from the State Energy Data System (SEDS) pages of the US Energy Information Administration’s (EIA) website. All of the energy values contained in this visualization represent energy consumed in billions of BTU. A more detailed overview of how we arrived at these values is outlined below.
